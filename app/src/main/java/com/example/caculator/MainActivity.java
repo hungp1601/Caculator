@@ -69,10 +69,7 @@ public class MainActivity extends AppCompatActivity {
         btnDiv.setOnClickListener(v -> {
             answer.setText(answer.getText().toString() + "/");
         });
-        btnMul.setOnClickListener(v -> {
-            answer.setText(answer.getText().toString() + "*");
-
-        });
+        btnMul.setOnClickListener(v -> { answer.setText(answer.getText().toString() + "*"); });
 
         btnEqual.setOnClickListener(v -> {
             Double finalAns = null;
@@ -117,6 +114,10 @@ public class MainActivity extends AppCompatActivity {
 
     //error handle
 
+    void Clear() {
+        answer.setText("");
+    }
+
     public void ErrorMessage() {
         Clear();
         AlertDialog alertDialog = new AlertDialog.Builder(MainActivity.this).create();
@@ -127,11 +128,6 @@ public class MainActivity extends AppCompatActivity {
         alertDialog.show();
     }
 
-    void Clear() {
-        answer.setText("");
-    }
-
-    //some basic expressions
     double getAns() throws ScriptException {
         String s = answer.getText().toString();
         Double result = null;
